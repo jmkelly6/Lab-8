@@ -62,7 +62,7 @@ public class LLQueue {
     
     // Returns the size of linked list by traversing the list
     public int size() {
-        if(this.front == null && this.back == null) {
+        if(front == null && back == null) {
             return 0;
         }
         int count = 1;
