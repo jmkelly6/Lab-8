@@ -57,6 +57,11 @@ public class UsingStacksSuitorsLab implements Runnable {
 	
 	public static void printReverse(String target) {
 		//todo: use a stack
+		LLStack helpReverse = new LLStack();
+		for(int i = 0; i < target.length(); i++) {
+			helpReverse.addToStart(target.charAt(i));
+		}
+		helpReverse.outputList();
 	}
 	
 	public static void recPrintReverse(String target) {

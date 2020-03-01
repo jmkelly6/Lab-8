@@ -46,6 +46,7 @@ public class LLQueue {
             ptr = ptr.next;
         }
         ptr.next = newNode;
+        newNode.next = null;
     }
     
     //poll(dequeue): retrieves and removes the head of this queue, 
@@ -86,7 +87,7 @@ public class LLQueue {
     } 
     
     //isEmpty: Check to see if the Queue is empty and returns a
-    // boolean value responding to the anwer.
+    // boolean value responding to the answer.
     public boolean isEmpty() {
         if(this.size() == 0) {
             return true;

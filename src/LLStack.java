@@ -71,11 +71,14 @@
           // to do
           Node ptr = head;
           while(ptr.next != null) {
-              if(ptr.data == item) {
+              if(ptr.data.equals(item)) {
                   return true;
               } else {
                   ptr = ptr.next;
               }
+          }
+          if(ptr.data.equals(item)) {
+              return true;
           }
           return false;
       }
@@ -124,7 +127,9 @@
       }
       
       public void clear( ) {
-          // to do
+          while(!this.isEmpty()) {
+              this.deleteHead();
+          }
       }
       // For two lists to be equal they must contain the same data items in
       // the same order. The equals method of T is used to compare data items.
@@ -230,7 +235,7 @@
            System.out.println("End of list.");
                 
                     
-           System.out.println("In the begining linkedList has " + linkedList.size() + " nodes");
+           System.out.println("In the beginning linkedList has " + linkedList.size() + " nodes");
            linkedList.clear();
           
            System.out.println("After testing clear(), linkedList has " + linkedList.size() + " nodes");
