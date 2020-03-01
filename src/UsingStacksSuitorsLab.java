@@ -32,7 +32,7 @@ public class UsingStacksSuitorsLab implements Runnable {
 		System.out.println(s2 + " reversed is: ");
 		printReverse(s2);
 		
-	 /*   recPrintReverse(s1);
+	    recPrintReverse(s1);
 		System.out.println();
 		recPrintReverse(s2);
 		System.out.println();
@@ -49,14 +49,13 @@ public class UsingStacksSuitorsLab implements Runnable {
 		System.out.println("For " + n + " suitors, stand in place:" + findPlaceToStand(n));
 		
 		n = 10;
-		System.out.println("For " + n + " suitors, stand in place:" + findPlaceToStand(n));*/
+		System.out.println("For " + n + " suitors, stand in place:" + findPlaceToStand(n));
 	}
 		
 	
 	
 	
 	public static void printReverse(String target) {
-		//todo: use a stack
 		LLStack helpReverse = new LLStack();
 		for(int i = 0; i < target.length(); i++) {
 			helpReverse.addToStart(target.charAt(i));
@@ -65,22 +64,45 @@ public class UsingStacksSuitorsLab implements Runnable {
 	}
 	
 	public static void recPrintReverse(String target) {
-		//todo
-		int front = 0;
-		int end = target.length() - 1;
-
+		if((target == null) || (target.length() < 1)) {
+			System.out.println(target);
+		} else {
+			System.out.print(target.charAt(target.length() - 1));
+			recPrintReverse(target.substring(0, target.length() - 1));
+		}
 	}
 	
 	public static boolean isPalindrome(String input) {
-		//todo: use a stack
 		LLStack checkPal = new LLStack();
-		
-		return false;
+		for(int i = 0; i < input.length(); i++) {
+			checkPal.addToStart(input.charAt(i));
+		}
+		String reversed = "";
+		while(!checkPal.isEmpty()) {
+			reversed += checkPal.deleteHead();
+		}
+		if(input.equals(reversed)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public static boolean isPalindromeRec(String sentence)	{
-	  	//todo
-		return false;
+		return checkPalRec(sentence);
+	}
+
+	private static boolean checkPalRec(String sentence) {
+		if(sentence.length() < 2) {
+			return true;
+		}
+		char first = sentence.charAt(0);
+		char last = sentence.charAt(sentence.length() - 1);
+		if(first != last) {
+			return false;
+		} else {
+			return checkPalRec(sentence.substring(1, sentence.length() - 1));
+		}
 	}
 	
 	public static int findPlaceToStand(int numSuitors) {
