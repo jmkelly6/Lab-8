@@ -27,12 +27,12 @@ public class UsingStacksSuitorsLab implements Runnable {
 		System.out.println("String1 is \"" + s1 + "\"");
 		System.out.println("String2 is \"" + s2 + "\"");
 		
-	/*	System.out.println(s1 + " reversed is: ");
+		System.out.println(s1 + " reversed is: ");
 		printReverse(s1);
 		System.out.println(s2 + " reversed is: ");
 		printReverse(s2);
 		
-	    recPrintReverse(s1);
+	 /*   recPrintReverse(s1);
 		System.out.println();
 		recPrintReverse(s2);
 		System.out.println();
@@ -66,10 +66,15 @@ public class UsingStacksSuitorsLab implements Runnable {
 	
 	public static void recPrintReverse(String target) {
 		//todo
+		int front = 0;
+		int end = target.length() - 1;
+
 	}
 	
 	public static boolean isPalindrome(String input) {
 		//todo: use a stack
+		LLStack checkPal = new LLStack();
+		
 		return false;
 	}
 
