@@ -106,9 +106,22 @@ public class UsingStacksSuitorsLab implements Runnable {
 	}
 	
 	public static int findPlaceToStand(int numSuitors) {
-		//todo
-		return -1;
-	}	
+		Queue<Integer> queue = new LinkedList<>();
+		for(int i = 0; i < numSuitors; i++) {
+			queue.add(i+1); // add all numbers in the stack
+		}
+		int mod = 3;
+		int i = 1;
+		while(queue.size() > 1) { // while queue size is greater than 1
+			int candidate = queue.poll(); // remove the first element
+			if(i != mod) { // if the
+				queue.add(candidate);
+			}
+			//System.out.println(queue);
+			i = (i % mod) + 1; // increment the count by one
+		}
+		return queue.poll(); // return the last remaining digit
+	}
 
 
 	public static boolean buildThreadQueue() {	//returns true upon success
